@@ -2,9 +2,15 @@
   "name": "vue-router-webcache",
   "version": "0.0.1",
   "description": "Enable vue-router routing for google webcache(and same caches)",
-  "main": "lib/index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "nuxt dev test/fixtures/nuxt"
+  },
   "files": [
-    "lib"
+    "dist/index.js",
+    "dist/nuxt/index.js"
   ],
   "repository": {
     "type": "git",
@@ -14,10 +20,33 @@
     "router",
     "webcache",
     "nuxt-module",
-    "vue",
+    "vue"
   ],
   "author": "Kolobok12309 <sova123409@gmail.com>",
   "license": "MIT",
   "private": false,
-  "homepage": "https://github.com/Kolobok12309/vue-router-webcache#readme"
+  "homepage": "https://github.com/Kolobok12309/vue-router-webcache#readme",
+  "peerDependencies": {
+    "vue": "^2.6.14",
+    "vue-router": "^3.5.2"
+  },
+  "dependencies": {
+    "consola": "^2.15.3",
+    "defu": "^5.0.0",
+    "lodash": "^4.17.21",
+    "nuxt-vuex-router-sync": "^0.0.3",
+    "@nuxtjs/router": "^1.6.1",
+    "url-parse": "^1.5.3"
+  },
+  "devDependencies": {
+    "@nuxt/types": "^2.15.8",
+    "@nuxtjs/proxy": "^2.1.0",
+    "@types/lodash": "^4.14.173",
+    "@types/node": "^16.9.2",
+    "@types/url-parse": "^1.4.4",
+    "@types/vue": "^2.0.0",
+    "@types/vue-router": "^2.0.0",
+    "nuxt": "^2.15.8",
+    "typescript": "^4.4.3"
+  }
 }
