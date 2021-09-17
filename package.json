@@ -6,11 +6,12 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "dev": "nuxt dev test/fixtures/nuxt"
+    "dev": "nuxt dev test/fixtures/nuxt",
+    "postversion":
+      "git push --tags && yarn publish && git push && echo \"Successfully released version $npm_package_version!\""
   },
   "files": [
-    "dist/index.js",
-    "dist/nuxt/index.js"
+    "dist"
   ],
   "repository": {
     "type": "git",
