@@ -9,8 +9,7 @@ It is package that help you make the webcache(yandex cache and other) work. Test
   - Nuxt, add `nuxt-vuex-router-sync`(or analogs) and get `window.__NUXT__.state.route.fullPath`
   - Vue, get url from window.location.query for example
 - After `router` creating set current route
-  - Nuxt, mock first `router.resolve` call
-https://github.com/Kolobok12309/vue-router-webcache/blob/c289d3d77ae917c70f81f898a3e018ae3da10894/lib/utils.ts#L15-L22
+  - Nuxt, mock first `router.resolve` call [patchNuxtRouter](https://github.com/Kolobok12309/vue-router-webcache/blob/c289d3d77ae917c70f81f898a3e018ae3da10894/lib/utils.ts#L15-L22)
   - Call `router.replace(realUrl)`
 
 ## Install
@@ -39,7 +38,7 @@ export default {
   ]
 };
 ```
-Default `vue-router-webcache` config https://github.com/Kolobok12309/vue-router-webcache/blob/master/lib/nuxt/index.ts#L17-L27
+Default `vue-router-webcache` [config](https://github.com/Kolobok12309/vue-router-webcache/blob/master/lib/nuxt/index.ts#L17-L27)
 
 ## Vue usage
 1. Install package
