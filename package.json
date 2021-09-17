@@ -1,6 +1,6 @@
 {
   "name": "vue-router-webcache",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Enable vue-router routing for google webcache(and same caches)",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -31,11 +31,11 @@
     "vue-router": "^3.5.2"
   },
   "dependencies": {
+    "@nuxtjs/router": "^1.6.1",
     "consola": "^2.15.3",
     "defu": "^5.0.0",
     "lodash": "^4.17.21",
     "nuxt-vuex-router-sync": "^0.0.3",
-    "@nuxtjs/router": "^1.6.1",
     "url-parse": "^1.5.3"
   },
   "devDependencies": {
