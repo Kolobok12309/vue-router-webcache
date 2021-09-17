@@ -23,7 +23,7 @@ yarn add vue-router-webcache # or npm i vue-router-webcache
 
 `defaultCacheUrls` - Array of default cache urls
 
-`isCacheUrl` - Url checker with
+`isCacheUrl` - Url checker
 
 `patchNuxtRouter` - Router patcher for nuxt, mock first `router.resolve`
 
