@@ -1,0 +1,23 @@
+{
+  "name": "vue-router-webcache",
+  "version": "0.0.1",
+  "description": "Enable vue-router routing for google webcache(and same caches)",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kolobok12309/vue-router-webcache.git"
+  },
+  "keywords": [
+    "router",
+    "webcache",
+    "nuxt-module",
+    "vue",
+  ],
+  "author": "Kolobok12309 <sova123409@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "homepage": "https://github.com/Kolobok12309/vue-router-webcache#readme"
+}
