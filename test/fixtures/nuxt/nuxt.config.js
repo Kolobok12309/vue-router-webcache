@@ -1,9 +1,7 @@
-import path from 'path';
-
 export default {
   rootDir: __dirname,
   buildModules: [
-    ['../../../lib/nuxt/index.ts', {
+    ['vue-router-webcache/dist/nuxt', {
       cacheList: [{
         hostname: 'localhost',
         pathname: '/search',

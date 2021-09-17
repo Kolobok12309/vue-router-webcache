@@ -39,6 +39,7 @@ export default {
 };
 ```
 Default `vue-router-webcache` [config](https://github.com/Kolobok12309/vue-router-webcache/blob/master/lib/nuxt/index.ts#L17-L27)
+Full Nuxt example in [test/fixtures/nuxt](https://github.com/Kolobok12309/vue-router-webcache/tree/master/test/fixtures/nuxt)
 
 ## Vue usage
 1. Install package
