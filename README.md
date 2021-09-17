@@ -24,7 +24,7 @@ yarn add vue-router-webcache # or npm i vue-router-webcache
 ```js
 export default {
   buildModules: [
-    ['vue-router-webcache/nuxt', {
+    ['vue-router-webcache/dist/nuxt', {
       cacheList: [{
         hostname: '',
         pathname: '',
