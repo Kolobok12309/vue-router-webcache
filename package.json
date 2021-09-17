@@ -1,14 +1,13 @@
 {
   "name": "vue-router-webcache",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Enable vue-router routing for google webcache(and same caches)",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "dev": "nuxt dev test/fixtures/nuxt",
-    "postversion":
-      "git push --tags && yarn publish && git push && echo \"Successfully released version $npm_package_version!\""
+    "postversion": "git push --tags && yarn publish && git push && echo \"Successfully released version $npm_package_version!\""
   },
   "files": [
     "dist"
