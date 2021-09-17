@@ -39,7 +39,10 @@ export default {
 };
 ```
 Default `vue-router-webcache` [config](https://github.com/Kolobok12309/vue-router-webcache/blob/master/lib/nuxt/index.ts#L17-L27)
+
 Full Nuxt example in [test/fixtures/nuxt](https://github.com/Kolobok12309/vue-router-webcache/tree/master/test/fixtures/nuxt)
+
+If you don't change `urlGetter`, `vue-router-webcache` add `nuxt-vuex-router-sync` module to save `realUrl` in `store.state`
 
 ## Vue usage
 1. Install package
