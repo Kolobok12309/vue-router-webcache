@@ -17,6 +17,16 @@ It is package that help you make the webcache(yandex cache and other) work. Test
 yarn add vue-router-webcache # or npm i vue-router-webcache
 ```
 
+## Api
+
+`vueRouterWebcache` - default export is router factory with arguments: `routerOptions` and `additionalCacheList`
+
+`defaultCacheUrls` - Array of default cache urls
+
+`isCacheUrl` - Url checker with
+
+`patchNuxtRouter` - Router patcher for nuxt, mock first `router.resolve`
+
 ## Nuxt usage
 1. Install package
 2. Install `@nuxtjs/router`
