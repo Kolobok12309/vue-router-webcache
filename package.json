@@ -10,7 +10,8 @@
     "postbuild": "copyfiles -u 2 lib/nuxt/router.js dist/nuxt",
     "dev": "nuxt dev test/fixtures/nuxt",
     "postversion": "git push --tags && yarn publish && git push && echo \"Successfully released version $npm_package_version!\"",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "files": [
     "dist"
