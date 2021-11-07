@@ -2,7 +2,7 @@ import path from 'path';
 
 import { createPage, setupTest } from '@nuxt/test-utils'
 
-describe('Module with default "@nuxtjs/router"', () => {
+describe('Module with custom "@nuxtjs/router"', () => {
   setupTest({
     testDir: path.resolve(__dirname, '../../'),
     fixture: 'fixtures',

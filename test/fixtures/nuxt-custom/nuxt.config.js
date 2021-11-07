@@ -1,15 +1,10 @@
 export default {
   rootDir: __dirname,
   server: {
-    port: 3000,
+    port: 3001,
   },
   buildModules: [
-    ['vue-router-webcache/dist/nuxt', {
-      cacheList: [{
-        hostname: 'localhost',
-        pathname: '/search',
-      }],
-    }],
+    'nuxt-vuex-router-sync',
     ['@nuxtjs/router', {
       keepDefaultRouter: true,
     }],
@@ -17,7 +12,7 @@ export default {
   ],
   proxy: {
     '/search': {
-      target: 'http://localhost:3000',
+      target: 'http://localhost:3001',
       pathRewrite: () => '/test',
     },
   },
