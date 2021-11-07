@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "prebuild": "rimraf dist",
+    "prebuild": "rimraf dist && rimraf test/fixtures/*/.nuxt",
     "build": "tsc",
     "postbuild": "copyfiles -u 2 lib/nuxt/router.js dist/nuxt",
     "dev": "nuxt dev test/fixtures/nuxt",
