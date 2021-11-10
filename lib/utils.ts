@@ -1,4 +1,3 @@
-import URL from 'url-parse';
 import Router from 'vue-router';
 
 import { defaultCacheUrls } from './config';

@@ -35,22 +35,19 @@
   "private": false,
   "homepage": "https://github.com/Kolobok12309/vue-router-webcache#readme",
   "peerDependencies": {
-    "vue": "^2.6.14",
     "vue-router": "^3.5.2"
   },
   "dependencies": {
-    "@nuxtjs/router": "^1.6.1",
     "consola": "^2.15.3",
     "defu": "^5.0.0",
     "lodash": "^4.17.21",
-    "nuxt-vuex-router-sync": "^0.0.3",
-    "rimraf": "^3.0.2",
-    "url-parse": "^1.5.3"
+    "nuxt-vuex-router-sync": "^0.0.3"
   },
   "devDependencies": {
     "@nuxt/test-utils": "^0.2.2",
     "@nuxt/types": "^2.15.8",
     "@nuxtjs/proxy": "^2.1.0",
+    "@nuxtjs/router": "^1.6.1",
     "@types/jest": "^27.0.2",
     "@types/lodash": "^4.14.173",
     "@types/node": "^16.9.2",
@@ -62,6 +59,7 @@
     "nuxt": "^2.15.8",
     "playwright": "^1.16.3",
     "ts-node": "^10.4.0",
-    "typescript": "^4.4.3"
+    "typescript": "^4.4.3",
+    "rimraf": "^3.0.2"
   }
 }
