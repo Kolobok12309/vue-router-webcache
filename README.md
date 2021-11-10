@@ -1,5 +1,8 @@
 # Vue-router-webcache
-![npm](https://img.shields.io/npm/v/vue-router-webcache) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/kolobok12309/vue-router-webcache/Jest%20tests?label=tests) ![npm](https://img.shields.io/npm/dw/vue-router-webcache) ![NPM](https://img.shields.io/npm/l/vue-router-webcache) 
+[![npm](https://img.shields.io/npm/v/vue-router-webcache)](https://www.npmjs.com/package/vue-router-webcache)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/kolobok12309/vue-router-webcache/Jest%20tests?label=tests)](https://github.com/Kolobok12309/vue-router-webcache/actions/workflows/tests.yml)
+[![npm](https://img.shields.io/npm/dw/vue-router-webcache)](https://www.npmjs.com/package/vue-router-webcache)
+[![license](https://img.shields.io/npm/l/vue-router-webcache)](https://github.com/Kolobok12309/vue-router-webcache/blob/master/LICENSE)
 
 > A set of helpers for `vue-router` to working with google webcache and similar
 
@@ -17,7 +20,7 @@
 yarn add vue-router-webcache # npm i vue-router-webcache
 ```
 
-## Nuxt usage
+## Nuxt basic usage
 1. Install package
 2. Install `@nuxtjs/router`
 3. Add `vue-router-webcache` and `@nuxtjs/router` to `nuxt.config.js`
