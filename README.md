@@ -64,8 +64,7 @@ export default {
 
 ---
 
-Default `vue-router-webcache` nuxt-module config 
-https://github.com/Kolobok12309/vue-router-webcache/blob/master/lib/nuxt/index.ts#L17-L27
+Default `vue-router-webcache` nuxt-module [config](https://github.com/Kolobok12309/vue-router-webcache/blob/master/lib/nuxt/index.ts#L17-L27)
 
 Full example in [test/fixtures/nuxt-custom](https://github.com/Kolobok12309/vue-router-webcache/tree/master/test/fixtures/nuxt-custom)
 
