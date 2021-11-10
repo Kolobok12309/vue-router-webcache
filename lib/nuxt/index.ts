@@ -2,7 +2,7 @@ import path from 'path';
 import type { Module } from '@nuxt/types';
 import { existsSync, readFileSync, writeFileSync } from 'fs';
 import defu from 'defu';
-import { template as lodashTemplate } from 'lodash';
+import lodashTemplate from 'lodash.template';
 
 import { defaultCacheUrls, CacheUrl } from '../config';
 
