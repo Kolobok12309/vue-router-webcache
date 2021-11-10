@@ -4,7 +4,7 @@ export default {
     port: 3000,
   },
   buildModules: [
-    ['vue-router-webcache/dist/nuxt', {
+    ['vue-router-webcache/nuxt', {
       cacheList: [{
         hostname: 'localhost',
         pathname: '/search',

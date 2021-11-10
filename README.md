@@ -23,11 +23,11 @@ yarn add vue-router-webcache # npm i vue-router-webcache
 ## Nuxt basic usage
 1. Install package
 2. Install `@nuxtjs/router`
-3. Add `vue-router-webcache` and `@nuxtjs/router` to `nuxt.config.js`
+3. Add `vue-router-webcache/nuxt` and `@nuxtjs/router` to `nuxt.config.js`
 ```js
 export default {
   buildModules: [
-    'vue-router-webcache/dist/nuxt',
+    'vue-router-webcache/nuxt',
     ['@nuxtjs/router', {
       keepDefaultRouter: true,
     }],
@@ -36,7 +36,7 @@ export default {
 ```
 After first build package create `router.js` in root of project nuxt-community/router-module#107
 
-By default `vue-router-webcache` use `nuxt-vuex-router-sync` to get real url
+By default `vue-router-webcache/nuxt` use `nuxt-vuex-router-sync` to get real url
 
 Example in [test/fixtures/nuxt](https://github.com/Kolobok12309/vue-router-webcache/tree/master/test/fixtures/nuxt)
 
@@ -45,7 +45,7 @@ If you use custom router or you need more caches, you can customize options or u
 ```js
 export default {
   buildModules: [
-    ['vue-router-webcache/dist/nuxt', {
+    ['vue-router-webcache/nuxt', {
       cacheList: [{
         hostname: '',
         pathname: '',
@@ -67,11 +67,11 @@ export default {
 
 ---
 
-Default `vue-router-webcache` nuxt-module [config](https://github.com/Kolobok12309/vue-router-webcache/blob/master/lib/nuxt/index.ts#L17-L27)
+Default `vue-router-webcache/nuxt` [config](https://github.com/Kolobok12309/vue-router-webcache/blob/master/lib/nuxt/index.ts#L17-L27)
 
 Full example in [test/fixtures/nuxt-custom](https://github.com/Kolobok12309/vue-router-webcache/tree/master/test/fixtures/nuxt-custom)
 
-If you don't change `urlGetter`, `vue-router-webcache` add `nuxt-vuex-router-sync` module to save `realUrl` in `store.state`
+If you don't change `urlGetter`, `vue-router-webcache/nuxt` add `nuxt-vuex-router-sync` module to save `realUrl` in `store.state`
 
 ## Vue-router usage
 1. Install package

@@ -16,8 +16,7 @@
     "dist"
   ],
   "exports": {
-    ".": "./lib/index.ts",
-    "./nuxt": "./lib/nuxt/index.ts"
+    "./nuxt": "./dist/nuxt/index.js"
   },
   "repository": {
     "type": "git",
