@@ -1,7 +1,53 @@
 import type Router from 'vue-router';
 
 import { defaultCacheUrls } from './config';
-import { isCacheUrl, patchNuxtRouter } from './utils';
+import { getCache, getRealUrl, isCacheUrl, patchNuxtRouter } from './utils';
+
+describe('Utils: getCache', () => {
+  it('Default cacheList', () => {
+    defaultCacheUrls.forEach(({ hostname, pathname }, index) => {
+      const url = `https://${hostname}${pathname}`;
+      const res = getCache(url);
+
+      expect(res).toEqual(defaultCacheUrls[index]);
+    });
+
+    const wrongUrl = `https://localhost/search`;
+
+    expect(getCache(wrongUrl)).toEqual(null);
+  });
+
+  it('Custom cacheList', () => {
+    const cacheList = [
+      {
+        hostname: 'localhost',
+        pathname: '/search'
+      },
+      {
+        hostname: 'localhost',
+        pathname: '/foo'
+      },
+      {
+        hostname: 'bar',
+        pathname: '/baz',
+      },
+    ];
+
+    cacheList.forEach(({ hostname, pathname }, index) => {
+      const url = `https://${hostname}${pathname}`;
+      const res = getCache(url, cacheList);
+
+      expect(res).toEqual(cacheList[index]);
+    });
+
+    defaultCacheUrls.forEach(({ hostname, pathname }) => {
+      const url = `https://${hostname}${pathname}`;
+      const res = getCache(url, cacheList);
+
+      expect(res).toEqual(null);
+    });
+  });
+});
 
 describe('Utils: isCacheUrl', () => {
   it('Default cacheList', () => {
@@ -46,6 +92,51 @@ describe('Utils: isCacheUrl', () => {
 
       expect(res).toEqual(false);
     });
+  });
+});
+
+describe('Utils: getRealUrl', () => {
+  it('Call getRealUrl', () => {
+    const cacheList = [
+      {
+        hostname: 'example',
+        pathname: '/foo',
+        getRealUrl: jest.fn(),
+      },
+      {
+        hostname: 'example',
+        pathname: '/bar',
+        getRealUrl: jest.fn(),
+      },
+    ];
+
+    expect(cacheList[0].getRealUrl).not.toHaveBeenCalled();
+    expect(cacheList[1].getRealUrl).not.toHaveBeenCalled();
+
+    getRealUrl('http://example/bar', cacheList);
+
+    expect(cacheList[0].getRealUrl).not.toHaveBeenCalled();
+    expect(cacheList[1].getRealUrl).toHaveBeenCalled();
+    expect(cacheList[1].getRealUrl).toHaveBeenCalledWith('http://example/bar');
+
+    getRealUrl('http://example/foo', cacheList);
+
+    expect(cacheList[0].getRealUrl).toHaveBeenCalled();
+    expect(cacheList[0].getRealUrl).toHaveBeenCalledWith('http://example/foo');
+    expect(cacheList[1].getRealUrl).toHaveBeenCalledTimes(1);
+  });
+
+  it('Return null', () => {
+    expect(getRealUrl('http://example.com')).toEqual(null);
+
+    const cacheList = [
+      {
+        hostname: 'localhost',
+        pathname: '/search',
+      }
+    ];
+
+    expect(getRealUrl('https://localhost/search', cacheList)).toEqual(null);
   });
 });
 
