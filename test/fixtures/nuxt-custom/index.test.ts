@@ -1,6 +1,6 @@
 import path from 'path';
 
-import { createPage, setupTest } from '@nuxt/test-utils'
+import { createPage, setupTest, url } from '@nuxt/test-utils'
 
 describe('Module with custom "@nuxtjs/router"', () => {
   setupTest({
@@ -23,9 +23,15 @@ describe('Module with custom "@nuxtjs/router"', () => {
   });
 
   it('Render test page by /search url', async () => {
-    const page = await createPage('/search');
+    const onError = jest.fn();
+    const page = await createPage();
+
+    page.on('pageerror', (err) => onError(err));
+
+    await page.goto(url('/search'));
     const html = await page.innerHTML('body');
 
+    expect(onError).not.toHaveBeenCalled();
     expect(html).toContain('Test page');
   });
 
