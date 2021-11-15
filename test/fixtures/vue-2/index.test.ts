@@ -74,5 +74,5 @@ describe('Simple vue-router app (SPA)', () => {
       browser.close(),
       server.close(),
     ]);
-  });
+  }, 2e4);
 });
