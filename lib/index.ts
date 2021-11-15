@@ -1,6 +1,6 @@
 import Router, { RouterOptions } from 'vue-router';
 
-import { isCacheUrl } from './utils';
+import { getCache } from './utils';
 import { defaultCacheUrls, CacheUrl } from './config';
 
 export * from './utils';
@@ -9,18 +9,29 @@ export {
 };
 
 export default (routerOptions: RouterOptions, additionalCacheList: CacheUrl[] = []) => {
-  const cacheList = [
+  const cacheUrls = [
     ...defaultCacheUrls,
     ...additionalCacheList,
   ];
+  const currentUrl = window.location.href;
 
-  const isCache = isCacheUrl(window.location.href, cacheList);
-  const mode = isCache
-    ? 'abstract'
-    : routerOptions.mode;
+  const cache = getCache(currentUrl, cacheUrls);
 
-  return new Router({
+  if (!cache) return new Router(routerOptions);
+
+  const router = new Router({
     ...routerOptions,
-    mode,
+    mode: 'abstract',
   });
+
+  const realUrl = cache.getRealUrl?.(currentUrl);
+
+  if (realUrl) {
+    const parsed = new URL(realUrl);
+    const realFullPath = parsed.pathname + parsed.search + parsed.hash;
+
+    router.replace(realFullPath);
+  }
+
+  return router;
 };
