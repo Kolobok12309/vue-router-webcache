@@ -34,7 +34,7 @@
   "private": false,
   "homepage": "https://github.com/Kolobok12309/vue-router-webcache#readme",
   "peerDependencies": {
-    "vue-router": "^3.5.2"
+    "vue-router": "^3.5.2 || ^4.0.12"
   },
   "dependencies": {
     "consola": "^2.15.3",

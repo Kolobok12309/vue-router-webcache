@@ -5,7 +5,7 @@ const service = new VueService(__dirname);
 
 service.init('development');
 
-describe('Custom vue-router-4 app (SPA)', () => {
+describe('Simple vue-router-4 app (SPA)', () => {
   let browser, server, baseUrl;
 
   const getUrl = (path = '') => new URL(path, baseUrl);
@@ -31,13 +31,13 @@ describe('Custom vue-router-4 app (SPA)', () => {
     expect(html).toContain('Test page');
   });
 
-  it('Render test page by /search?url=http://localhost:3003/test url', async () => {
+  it('Render test page by /search?url=http://localhost:3004/test url', async () => {
     const onError = jest.fn();
     const page = await browser.newPage();
 
     page.on('pageerror', (err) => onError(err));
 
-    await page.goto(getUrl('/search?url=http://localhost:3003/test').toString());
+    await page.goto(getUrl('/search?url=http://localhost:3004/test').toString());
     await page.waitForLoadState();
 
     const html = await page.innerHTML('body');

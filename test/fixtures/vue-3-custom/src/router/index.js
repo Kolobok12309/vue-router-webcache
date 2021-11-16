@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, createMemoryHistory } from 'vue-router4';
+import { createRouter, createWebHistory, createMemoryHistory } from 'vue-router';
 import { defaultCacheUrls, getCache } from 'vue-router-webcache';
 
 import routes from './routes';

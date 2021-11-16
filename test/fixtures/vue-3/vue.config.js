@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   devServer: {
     host: 'localhost',
-    port: 3003,
+    port: 3004,
   },
   configureWebpack: {
     resolve: {
