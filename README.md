@@ -9,11 +9,13 @@
 ## Table of Contents
 - [Install](#install)
 - [Compatibility caches](#compatibility-caches)
+- [Compatibility Vue](#compatibility-vue)
 - [Nuxt basic usage](#nuxt-basic-usage)
 - [Nuxt advanced usage](#nuxt-advanced-usage)
 - [Vue-router usage](#vue-router-usage)
 - [Api](#api)
 - [How it work](#how-it-work)
+- [Examples](#examples)
 - [URL](#url)
 
 ## Install
@@ -43,6 +45,9 @@ const isCache = isCacheUrl(window.location.href, [
 `getRealUrl` - is optional prop, to extract `realUrl` for SPA apps or for SSR without `vuex-router-sync`. 
 
 [Example of cache](lib/config.ts#L10)
+
+## Compatibility Vue
+Current package support Vue 2 (`vue-router@3`) and Vue 3 (`vue-router@4`).
 
 ## Nuxt basic usage
 1. Install package
@@ -221,6 +226,9 @@ patchNuxtRouter(router, realUrl);
 
 `router` - instance of `vue-router`
 `href` - real url of current page
+
+## Examples
+All usage examples you can see in [test/fixtures](test/fixtures)
 
 ## URL
 Helpers use `URL` constructor to parse url's. Mb you need install polyfill to use it.
