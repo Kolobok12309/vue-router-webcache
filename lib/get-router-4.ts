@@ -1,9 +1,9 @@
-import { createRouter, RouterOptions, createMemoryHistory } from 'vue-router4';
+import * as VueRouter from 'vue-router';
 
 import { getCache } from './utils';
 import { defaultCacheUrls, CacheUrl } from './config';
 
-export default (routerOptions: RouterOptions, additionalCacheList: CacheUrl[] = []) => {
+export default (routerOptions: VueRouter.RouterOptions, additionalCacheList: CacheUrl[] = []) => {
   const cacheUrls = [
     ...defaultCacheUrls,
     ...additionalCacheList,
@@ -12,11 +12,11 @@ export default (routerOptions: RouterOptions, additionalCacheList: CacheUrl[] = 
 
   const cache = getCache(currentUrl, cacheUrls);
 
-  if (!cache) return createRouter(routerOptions);
+  if (!cache) return (VueRouter as any).createRouter(routerOptions);
 
-  const history = createMemoryHistory();
+  const history = (VueRouter as any).createMemoryHistory();
 
-  const router = createRouter({
+  const router = (VueRouter as any).createRouter({
     ...routerOptions,
     history,
   });
