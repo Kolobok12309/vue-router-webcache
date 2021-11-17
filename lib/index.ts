@@ -1,26 +1,17 @@
-import Router, { RouterOptions } from 'vue-router';
+import Router from 'vue-router';
 
-import { isCacheUrl } from './utils';
-import { defaultCacheUrls, CacheUrl } from './config';
+export { defaultCacheUrls, CacheUrl } from './config';
+
+import type createRouter3 from './get-router-3';
+import type createRouter4 from './get-router-4';
 
 export * from './utils';
-export {
-  defaultCacheUrls,
-};
 
-export default (routerOptions: RouterOptions, additionalCacheList: CacheUrl[] = []) => {
-  const cacheList = [
-    ...defaultCacheUrls,
-    ...additionalCacheList,
-  ];
+const { version = '4.0.0' } = Router || {};
+const majorVersion = version.split('.').map(Number)[0];
 
-  const isCache = isCacheUrl(window.location.href, cacheList);
-  const mode = isCache
-    ? 'abstract'
-    : routerOptions.mode;
+const getRouter = majorVersion === 4
+  ? (require('./get-router-4').default as typeof createRouter4)
+  : (require('./get-router-3').default as typeof createRouter3);
 
-  return new Router({
-    ...routerOptions,
-    mode,
-  });
-};
+export default getRouter;

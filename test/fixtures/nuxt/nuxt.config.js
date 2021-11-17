@@ -8,6 +8,7 @@ export default {
       cacheList: [{
         hostname: 'localhost',
         pathname: '/search',
+        getRealUrl: () => 'http://localhost:3000/test',
       }],
     }],
     ['@nuxtjs/router', {

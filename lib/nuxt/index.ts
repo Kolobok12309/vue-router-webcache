@@ -12,6 +12,7 @@ interface ModuleOptions {
   cacheList?: CacheUrl[];
   replacePush?: boolean;
   urlGetter?: () => string;
+  forceVuexRouterSync?: boolean;
 };
 
 const defaultOptions: ModuleOptions = {
@@ -20,10 +21,11 @@ const defaultOptions: ModuleOptions = {
   urlGetter: function() {
     if (!(window as any).__NUXT__) return '/';
 
-    const { fullPath = '/' } = (window as any).__NUXT__.state.route;
+    const { fullPath = '/' } = (window as any).__NUXT__.state.route || {};
 
     return fullPath;
   },
+  forceVuexRouterSync: false,
 };
 
 const nuxtModule: Module<ModuleOptions> = function (moduleOptions) {
@@ -32,9 +34,21 @@ const nuxtModule: Module<ModuleOptions> = function (moduleOptions) {
     moduleOptions,
     defaultOptions,
   );
+  const isAllCachesHasGetters = options.cacheList
+    .every(({ getRealUrl }) => getRealUrl);
+  const isDefaultUrlGetter = options.urlGetter === defaultOptions.urlGetter;
 
-  const isCustomUrlGetter = options.urlGetter !== defaultOptions.urlGetter;
-  if (!isCustomUrlGetter) this.requireModule('nuxt-vuex-router-sync');
+  if (!isAllCachesHasGetters && isDefaultUrlGetter) {
+    logger.warn('Not all caches have a "getRealUrl" function, adding "nuxt-vuex-router-sync"');
+
+    options.forceVuexRouterSync = true;
+  }
+
+  if (options.forceVuexRouterSync) {
+    options.urlGetter = defaultOptions.urlGetter;
+
+    this.requireModule('nuxt-vuex-router-sync');
+  }
 
   const routerFile = path.join(this.options.srcDir, 'router.js');
   if (!existsSync(routerFile)) {
