@@ -1,6 +1,6 @@
 import Router, { RouterOptions } from 'vue-router';
 
-import { getCache } from './utils';
+import { getCache, getFullPath } from './utils';
 import { defaultCacheUrls, CacheUrl } from './config';
 
 export default (routerOptions: RouterOptions, additionalCacheList: CacheUrl[] = []) => {
@@ -22,8 +22,7 @@ export default (routerOptions: RouterOptions, additionalCacheList: CacheUrl[] = 
   const realUrl = cache.getRealUrl?.(currentUrl);
 
   if (realUrl) {
-    const parsed = new URL(realUrl);
-    const realFullPath = parsed.pathname + parsed.search + parsed.hash;
+    const realFullPath = getFullPath(realUrl, routerOptions.base);
 
     router.replace(realFullPath);
   }

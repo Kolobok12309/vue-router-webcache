@@ -35,3 +35,14 @@ export const patchNuxtRouter = (router: Router, href: string) => {
     return origRouterResolve(href);
   };
 };
+
+export const getFullPath = (fullUrl: string, base = '/') => {
+  const parsed = new URL(fullUrl);
+
+  let fullPath = parsed.pathname + parsed.search + parsed.hash;
+
+  if (fullPath.startsWith(base)) fullPath = fullPath.replace(base, '');
+  if (!fullPath.startsWith('/')) fullPath = '/' + fullPath;
+
+  return fullPath;
+};

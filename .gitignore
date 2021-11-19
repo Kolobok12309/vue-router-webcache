@@ -3,4 +3,5 @@ node_modules
 dist
 .nuxt
 test/fixtures/nuxt/router.js
+test/fixtures/nuxt-base/router.js
 coverage

@@ -36,7 +36,7 @@ describe('Module with custom "@nuxtjs/router"', () => {
   });
 
   it('Render error page by /foo url', async () => {
-    const page = await createPage('/search');
+    const page = await createPage('/foo');
     const html = await page.innerHTML('body');
 
     expect(html).toContain('error');

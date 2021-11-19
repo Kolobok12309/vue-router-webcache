@@ -1,7 +1,7 @@
 import * as VueRouter from 'vue-router';
 import type { RouterOptions, createRouter, createMemoryHistory } from 'vue-router4';
 
-import { getCache } from './utils';
+import { getCache, getFullPath } from './utils';
 import { defaultCacheUrls, CacheUrl } from './config';
 
 export default (routerOptions: RouterOptions, additionalCacheList: CacheUrl[] = []) => {
@@ -22,11 +22,10 @@ export default (routerOptions: RouterOptions, additionalCacheList: CacheUrl[] = 
     history,
   });
 
-  const realUrl = cache.getRealUrl(currentUrl);
+  const realUrl = cache.getRealUrl?.(currentUrl);
 
   if (realUrl) {
-    const parsed = new URL(realUrl);
-    const realFullPath = parsed.pathname + parsed.search + parsed.hash;
+    const realFullPath = getFullPath(realUrl, routerOptions.history.base || '/');
 
     history.replace(realFullPath);
   }
