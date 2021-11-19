@@ -1,7 +1,7 @@
 import type Router from 'vue-router';
 
 import { defaultCacheUrls } from './config';
-import { getCache, getRealUrl, isCacheUrl, patchNuxtRouter } from './utils';
+import { getCache, getRealUrl, isCacheUrl, patchNuxtRouter, getFullPath } from './utils';
 
 describe('Utils: getCache', () => {
   it('Default cacheList', () => {
@@ -177,5 +177,66 @@ describe('Utils: patchNuxtRouter', () => {
     expect(resolve).toHaveBeenLastCalledWith(uniqHref);
     expect((resolve.mock.instances[1] as unknown as Router).resolve)
       .toEqual(router.resolve);
+  });
+});
+
+describe('Utils: getFullPath', () => {
+  const testCases = [
+    {
+      url: 'http://example.com',
+      base: '/',
+      res: '/',
+    },
+    {
+      url: 'https://example.com/',
+      base: '/',
+      res: '/',
+    },
+    {
+      url: 'http://example.com/foo/bar',
+      base: '/',
+      res: '/foo/bar',
+    },
+    {
+      url: 'http://example.com/foo/',
+      base: '/',
+      res: '/foo/',
+    },
+    {
+      url: 'http://example.com/foo/bar',
+      base: '/foo/',
+      res: '/bar',
+    },
+    {
+      url: 'http://example.com/foo/',
+      base: '/foo',
+      res: '/',
+    },
+    {
+      url: 'http://example.com/bar/foo',
+      base: '/bar/foo',
+      res: '/',
+    },
+    {
+      url: 'http://example.com/foo',
+      base: '/foo',
+      res: '/',
+    },
+    {
+      url: 'http://example.com/foo?test=bar',
+      base: '/',
+      res: '/foo?test=bar',
+    },
+    {
+      url: 'http://example.com/bar/#some-hash',
+      base: '/bar',
+      res: '/#some-hash',
+    },
+  ];
+
+  testCases.forEach(({ url, base, res }) => {
+    const realRes = getFullPath(url, base);
+
+    expect(realRes).toEqual(res);
   });
 });
