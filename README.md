@@ -212,6 +212,21 @@ const realUrl = getRealUrl(window.location.href, [
 
 `cacheList` - list of caches to check (optional)
 
+### getFullPath
+
+> Helper extract `fullPath` from realUrl and cut `base`(second argument)
+
+```js
+import { getFullPath } from 'vue-router-webcache';
+
+const fullPath = getFullPath('http://example.com/foo/bar', '/foo');
+// /bar
+```
+
+`fullUrl` - url for extracting
+
+`base` - base url of your app (default=`/`)
+
 ### patchNuxtRouter
 
 > Router patcher for nuxt, mock first `router.resolve`
