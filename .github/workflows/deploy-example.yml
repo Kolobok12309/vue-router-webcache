@@ -24,6 +24,7 @@ jobs:
         run: yarn pages:generate
         env:
           NUXT_ENV_BASE_PATH: /vue-router-webcache/
+          NUXT_ENV_GOOGLE_VERIFICATION: r8VNSi0pytlayKsuJoW9jcALlBv_hsI9E6tJ7_7Uyow
 
       - name: Deploy to Github Pages
         uses: peaceiris/actions-gh-pages@v3

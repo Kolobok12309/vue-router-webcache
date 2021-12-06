@@ -104,14 +104,23 @@
 <script>
 export default {
   head() {
+    const googleVerificationMeta = process.env.NUXT_ENV_GOOGLE_VERIFICATION
+      ? {
+        hid: 'google-site-verification',
+        name: 'google-site-verification',
+        content: process.env.NUXT_ENV_GOOGLE_VERIFICATION,
+      }
+      : null,
+
     return {
       title: 'Vue-router-webcache example',
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: 'Vue-router-webcache example of package working and an example of a bug that this package fixes'
-        }
+          content: 'Vue-router-webcache example of package working and an example of a bug that this package fixes',
+        },
+        googleVerificationMeta,
       ],
       link: [
         {
