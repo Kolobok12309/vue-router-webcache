@@ -110,7 +110,7 @@ export default {
         name: 'google-site-verification',
         content: process.env.NUXT_ENV_GOOGLE_VERIFICATION,
       }
-      : null,
+      : null;
 
     return {
       title: 'Vue-router-webcache example',
