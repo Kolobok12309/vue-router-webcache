@@ -2,6 +2,7 @@
 [![npm](https://img.shields.io/npm/v/vue-router-webcache)](https://www.npmjs.com/package/vue-router-webcache)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/kolobok12309/vue-router-webcache/Jest%20tests?label=tests)](https://github.com/Kolobok12309/vue-router-webcache/actions/workflows/tests.yml)
 [![npm](https://img.shields.io/npm/dw/vue-router-webcache)](https://www.npmjs.com/package/vue-router-webcache)
+[![GH Pages](https://img.shields.io/github/deployments/kolobok12309/vue-router-webcache/github-pages?label=GH%20Pages)](https://kolobok12309.github.io/vue-router-webcache)
 [![license](https://img.shields.io/npm/l/vue-router-webcache)](https://github.com/Kolobok12309/vue-router-webcache/blob/master/LICENSE)
 
 > A set of helpers for `vue-router` to working with google webcache and similar
@@ -244,6 +245,8 @@ patchNuxtRouter(router, realUrl);
 
 ## Examples
 All usage examples you can see in [test/fixtures](test/fixtures)
+
+[GH Pages example](https://kolobok12309.github.io/vue-router-webcache/)
 
 ## URL
 Helpers use `URL` constructor to parse url's. Mb you need install polyfill to use it.
