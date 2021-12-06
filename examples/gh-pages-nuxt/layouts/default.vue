@@ -103,36 +103,6 @@
 
 <script>
 export default {
-  head() {
-    const googleVerificationMeta = process.env.NUXT_ENV_GOOGLE_VERIFICATION
-      ? {
-        hid: 'google-site-verification',
-        name: 'google-site-verification',
-        content: process.env.NUXT_ENV_GOOGLE_VERIFICATION,
-      }
-      : null;
-
-    return {
-      title: 'Vue-router-webcache example',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'Vue-router-webcache example of package working and an example of a bug that this package fixes',
-        },
-        googleVerificationMeta,
-      ],
-      link: [
-        {
-          rel: 'stylesheet',
-          href: 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css',
-          integrity: 'sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh',
-          crossorigin: 'anonymous',
-        },
-      ],
-    };
-  },
-
   computed: {
     isCache() {
       return this.$router.isCache;
