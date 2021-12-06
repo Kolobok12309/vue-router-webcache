@@ -23,7 +23,7 @@ jobs:
       - name: Build example site
         run: yarn pages:generate
         env:
-          NUXT_ENV_BASE_PATH: https://kolobok12309.github.io/vue-router-webcache/
+          NUXT_ENV_BASE_PATH: /vue-router-webcache/
 
       - name: Deploy to Github Pages
         uses: peaceiris/actions-gh-pages@v3
