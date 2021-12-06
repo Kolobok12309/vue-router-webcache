@@ -11,7 +11,9 @@
     "postversion": "git push --tags && yarn publish && git push && echo \"Successfully released version $npm_package_version!\"",
     "pretest": "jest --clearCache && rimraf test/fixtures/*/.nuxt && rimraf test/fixtures/nuxt/router.js && rimraf test/fixtures/nuxt-base/router.js && rimraf test/fixtures/*/node_modules",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "pages:dev": "nuxt dev examples/gh-pages-nuxt",
+    "pages:generate": "nuxt generate examples/gh-pages-nuxt"
   },
   "files": [
     "dist"
