@@ -1,6 +1,6 @@
 {
   "name": "vue-router-webcache",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Enable vue-router routing for google webcache(and same caches)",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
