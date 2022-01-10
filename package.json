@@ -19,6 +19,7 @@
     "dist"
   ],
   "exports": {
+    ".": "./dist/index.js",
     "./nuxt": "./dist/nuxt/index.js"
   },
   "repository": {
