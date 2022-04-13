@@ -22,7 +22,8 @@
   ],
   "exports": {
     ".": "./dist/index.js",
-    "./nuxt": "./dist/nuxt/index.js"
+    "./nuxt": "./dist/nuxt/index.js",
+    "./lib/": "./lib/"
   },
   "engines": {
     "node": "12.x || 14.x || 16.x",
