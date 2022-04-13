@@ -13,8 +13,8 @@
     "test:watch": "jest --watch",
     "pages:dev": "nuxt dev examples/gh-pages-nuxt",
     "pages:generate": "nuxt generate examples/gh-pages-nuxt",
-    "prepare": "npm run build",
-    "postinstall": "npm run build",
+    "prepare": "echo \"prepare\" && npm run build",
+    "postinstall": "echo \"postinstall\" && npm run build",
     "prepublishOnly": "npm test",
     "postversion": "git push && git push --tags"
   },
