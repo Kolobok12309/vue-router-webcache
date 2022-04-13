@@ -17,10 +17,6 @@
     "prepublishOnly": "npm test",
     "postversion": "git push && git push --tags"
   },
-  "files": [
-    "lib/",
-    "dist/"
-  ],
   "exports": {
     ".": "./dist/index.js",
     "./nuxt": "./dist/nuxt/index.js",
