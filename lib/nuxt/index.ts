@@ -1,10 +1,11 @@
-import path from 'path';
+import { resolve } from 'path';
 import type { Module } from '@nuxt/types';
 import { existsSync, readFileSync, writeFileSync } from 'fs';
 import defu from 'defu';
 import lodashTemplate from 'lodash.template';
 
 import { defaultCacheUrls, CacheUrl } from '../config';
+import { AUTO_UPDATE_FLAG } from './config';
 
 const logger = require('consola').withScope('vue-router-webcache');
 
@@ -13,7 +14,7 @@ interface ModuleOptions {
   replacePush?: boolean;
   urlGetter?: () => string;
   forceVuexRouterSync?: boolean;
-};
+}
 
 const defaultOptions: ModuleOptions = {
   cacheList: defaultCacheUrls,
@@ -50,13 +51,27 @@ const nuxtModule: Module<ModuleOptions> = function (moduleOptions) {
     this.requireModule('nuxt-vuex-router-sync');
   }
 
-  const routerFile = path.join(this.options.srcDir, 'router.js');
-  if (!existsSync(routerFile)) {
-    logger.info(`Creating new router configuration in ${this.options.srcDir}`)
+  const routerFilePath = resolve(this.options.srcDir, './router.js');
+  let needWriteFile = true;
 
-    const template = readFileSync(path.resolve(__dirname, 'router.js'), { encoding: 'utf-8' });
-    const compiled = lodashTemplate(template);
-    writeFileSync(routerFile, compiled({ options }));
+  if (existsSync(routerFilePath)) {
+    const currentRouterFile = readFileSync(routerFilePath, { encoding: 'utf-8' });
+    const isGenerated = currentRouterFile.startsWith(AUTO_UPDATE_FLAG);
+
+    if (isGenerated) logger.info('Update auto-generated "router.js" file');
+    else logger.info('Cannot change manually updated "router.js" file');
+
+    needWriteFile = isGenerated;
+  }
+
+  if (needWriteFile) {
+    logger.info(`Creating new router configuration in "${this.options.srcDir}"`)
+
+    const template = readFileSync(resolve(__dirname, './router.js'), { encoding: 'utf-8' });
+    const compiler = lodashTemplate(template);
+    const compiled = compiler({ options });
+
+    writeFileSync(routerFilePath, AUTO_UPDATE_FLAG + compiled);
   }
 }
 
