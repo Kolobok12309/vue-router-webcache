@@ -24,6 +24,10 @@
     "./nuxt": "./dist/nuxt/index.js",
     "./lib/": "./lib/"
   },
+  "engines": {
+    "node": "12.x || 14.x || 16.x",
+    "yarn": "1.x"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Kolobok12309/vue-router-webcache.git"
