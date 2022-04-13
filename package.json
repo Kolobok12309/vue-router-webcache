@@ -13,7 +13,7 @@
     "test:watch": "jest --watch",
     "pages:dev": "nuxt dev examples/gh-pages-nuxt",
     "pages:generate": "nuxt generate examples/gh-pages-nuxt",
-    "prepare": "echo \"Test prepare\" > test.txt && yarn run build",
+    "prepare": "npm run build",
     "prepublishOnly": "npm test",
     "postversion": "git push && git push --tags"
   },
