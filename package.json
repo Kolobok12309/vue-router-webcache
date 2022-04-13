@@ -16,8 +16,8 @@
     "pages:generate": "nuxt generate examples/gh-pages-nuxt"
   },
   "files": [
-    "lib/",
-    "dist/"
+    "lib/**/*",
+    "dist/**/*"
   ],
   "exports": {
     ".": "./dist/index.js",
