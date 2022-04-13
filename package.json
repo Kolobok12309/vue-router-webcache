@@ -11,32 +11,7 @@
     "prepare": "npm run build",
     "postversion": "git push && git push --tags"
   },
-  "files": [
-    "lib/",
-    "dist/"
-  ],
-  "exports": {
-    ".": "./dist/index.js",
-    "./nuxt": "./dist/nuxt/index.js",
-    "./lib/": "./lib/"
-  },
-  "engines": {
-    "node": "12.x || 14.x || 16.x",
-    "yarn": "1.x"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Kolobok12309/vue-router-webcache.git"
-  },
-  "keywords": [
-    "router",
-    "webcache",
-    "nuxt-module",
-    "vue"
-  ],
-  "author": "Kolobok12309 <sova123409@gmail.com>",
-  "license": "MIT",
-  "private": false,
+  "private": true,
   "homepage": "https://github.com/Kolobok12309/vue-router-webcache#readme",
   "peerDependencies": {
     "vue-router": "^3.0.0 || ^4.0.0"
