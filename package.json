@@ -5,7 +5,6 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "prepare": "yarn run build",
     "prebuild": "rimraf dist",
     "build": "tsc",
     "postbuild": "copyfiles -u 2 lib/nuxt/router.js dist/nuxt",
@@ -13,11 +12,14 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "pages:dev": "nuxt dev examples/gh-pages-nuxt",
-    "pages:generate": "nuxt generate examples/gh-pages-nuxt"
+    "pages:generate": "nuxt generate examples/gh-pages-nuxt",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test",
+    "postversion": "git push && git push --tags"
   },
   "files": [
-    "lib/**/*",
-    "dist/**/*"
+    "lib/",
+    "dist/"
   ],
   "exports": {
     ".": "./dist/index.js",
