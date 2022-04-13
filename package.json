@@ -8,6 +8,7 @@
     "prebuild": "rimraf dist",
     "build": "tsc",
     "postbuild": "copyfiles -u 2 lib/nuxt/router.js dist/nuxt",
+    "prepare": "yarn run build",
     "postversion": "git push --tags && yarn publish && git push && echo \"Successfully released version $npm_package_version!\"",
     "pretest": "jest --clearCache && rimraf test/fixtures/*/.nuxt && rimraf test/fixtures/nuxt/router.js && rimraf test/fixtures/nuxt-base/router.js && rimraf test/fixtures/*/node_modules",
     "test": "jest",
@@ -21,6 +22,10 @@
   "exports": {
     ".": "./dist/index.js",
     "./nuxt": "./dist/nuxt/index.js"
+  },
+  "engines": {
+    "node": "12.x || 14.x || 16.x",
+    "yarn": "1.x"
   },
   "repository": {
     "type": "git",
