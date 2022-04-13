@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "prepare": "yarn run build",
+    "prepare": "npm run build",
     "prebuild": "rimraf dist",
     "build": "tsc",
     "postbuild": "copyfiles -u 2 lib/nuxt/router.js dist/nuxt",
