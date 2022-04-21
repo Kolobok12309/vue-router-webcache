@@ -43,7 +43,7 @@ const isCache = isCacheUrl(window.location.href, [
 ]);
 ```
 
-`getRealUrl` - is optional prop, to extract `realUrl` for SPA apps or for SSR without `vuex-router-sync`. 
+`getRealUrl` - is optional prop, to extract `realUrl` for SPA apps or for SSR without `vuex-router-sync`.
 
 [Example of cache](lib/config.ts#L10)
 
@@ -54,6 +54,7 @@ Current package support Vue 2 (`vue-router@3`) and Vue 3 (`vue-router@4`).
 1. Install package
 2. Install `@nuxtjs/router`
 3. Add `vue-router-webcache/nuxt` and `@nuxtjs/router` to `nuxt.config.js`
+4. Add `router.js` to `.gitignore`
 ```js
 export default {
   buildModules: [
@@ -64,7 +65,7 @@ export default {
   ]
 };
 ```
-After first build package create `router.js` in root of project nuxt-community/router-module#107
+After first build, package create `router.js` in root of project nuxt-community/router-module#107
 
 By default `vue-router-webcache/nuxt` use `nuxt-vuex-router-sync` to get real url
 
