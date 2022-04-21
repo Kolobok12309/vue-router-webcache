@@ -67,6 +67,8 @@ export default {
 ```
 After first build, package create `router.js` in root of project nuxt-community/router-module#107
 
+> If you change generated `router.js`, don't forget remove first two lines
+
 By default `vue-router-webcache/nuxt` use `nuxt-vuex-router-sync` to get real url
 
 Example in [test/fixtures/nuxt](https://github.com/Kolobok12309/vue-router-webcache/tree/master/test/fixtures/nuxt)
