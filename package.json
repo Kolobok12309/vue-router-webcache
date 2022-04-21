@@ -8,19 +8,27 @@
     "prebuild": "rimraf dist",
     "build": "tsc",
     "postbuild": "copyfiles -u 2 lib/nuxt/router.js dist/nuxt",
-    "postversion": "git push --tags && yarn publish && git push && echo \"Successfully released version $npm_package_version!\"",
     "pretest": "jest --clearCache && rimraf test/fixtures/*/.nuxt && rimraf test/fixtures/nuxt/router.js && rimraf test/fixtures/nuxt-base/router.js && rimraf test/fixtures/*/node_modules",
     "test": "jest",
     "test:watch": "jest --watch",
     "pages:dev": "nuxt dev examples/gh-pages-nuxt",
-    "pages:generate": "nuxt generate examples/gh-pages-nuxt"
+    "pages:generate": "nuxt generate examples/gh-pages-nuxt",
+    "prepare": "yarn run build",
+    "prepublishOnly": "yarn run test",
+    "postversion": "git push && git push --tags"
   },
   "files": [
-    "dist"
+    "lib/",
+    "dist/"
   ],
   "exports": {
     ".": "./dist/index.js",
-    "./nuxt": "./dist/nuxt/index.js"
+    "./nuxt": "./dist/nuxt/index.js",
+    "./lib/": "./lib/"
+  },
+  "engines": {
+    "node": "12.x || 14.x || 16.x",
+    "yarn": "1.x"
   },
   "repository": {
     "type": "git",
