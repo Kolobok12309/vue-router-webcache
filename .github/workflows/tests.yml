@@ -1,5 +1,9 @@
 name: Jest tests
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 on:
   workflow_dispatch:
   push:
@@ -12,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ['12', '14', '16']
+        node: ['12', '14', '15', '16']
     steps:
       - uses: actions/checkout@v2
       - name: Setup Node
@@ -21,5 +25,21 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: 'yarn'
       - run: yarn install
-      - run: yarn build
       - run: yarn test
+
+  test-ssl3:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ '17', '18' ]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'yarn'
+      - run: yarn install
+      - run: yarn test
+        env:
+          NODE_OPTIONS: --openssl-legacy-provider
