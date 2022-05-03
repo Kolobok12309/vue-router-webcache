@@ -27,7 +27,7 @@
     "./lib/": "./lib/"
   },
   "engines": {
-    "node": ">=12 <=18",
+    "node": "12.x || >=14.x",
     "yarn": "1.x"
   },
   "repository": {
