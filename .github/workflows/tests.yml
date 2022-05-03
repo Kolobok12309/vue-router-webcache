@@ -25,14 +25,13 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: 'yarn'
       - run: yarn install
-      - run: yarn build
       - run: yarn test
 
-  test17:
+  test-ssl3:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [ '17' ]
+        node: [ '17', '18' ]
     steps:
       - uses: actions/checkout@v2
       - name: Setup Node
@@ -41,7 +40,6 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: 'yarn'
       - run: yarn install
-      - run: yarn build
       - run: yarn test
         env:
           NODE_OPTIONS: --openssl-legacy-provider
