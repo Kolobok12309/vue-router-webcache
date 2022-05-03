@@ -30,8 +30,6 @@ jobs:
 
   test17:
     runs-on: ubuntu-latest
-    env:
-      NODE_OPTIONS: --openssl-legacy-provider
     strategy:
       matrix:
         node: [ '17' ]
@@ -45,3 +43,5 @@ jobs:
       - run: yarn install
       - run: yarn build
       - run: yarn test
+        env:
+          NODE_OPTIONS: --openssl-legacy-provider
