@@ -4,8 +4,6 @@ export interface CacheUrl {
   getRealUrl?: (url: string) => string,
 }
 
-const googleRegex = /^cache:[^:]+:(.+)/
-
 export const defaultCacheUrls: CacheUrl[] = [
   {
     hostname: 'yandexwebcache.net',
@@ -23,7 +21,7 @@ export const defaultCacheUrls: CacheUrl[] = [
       const parsed = new URL(url);
       const q = parsed.searchParams.get('q');
 
-      const matched = q.match(googleRegex);
+      const matched = q.match(/^cache:[^:]+:(.+)/);
 
       if (!matched) throw new Error(`Can't extract realUrl from "${url}"`);
 
