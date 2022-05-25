@@ -4,5 +4,6 @@ dist
 .nuxt
 test/fixtures/nuxt/router.js
 test/fixtures/nuxt-base/router.js
+test/fixtures/nuxt-auto-update/router.js
 coverage
 .idea
